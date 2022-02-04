@@ -70,7 +70,7 @@ import * as CustomOpSyntaxCheck from "./custom/condition-ops/customSyntaxCheck";
 
 import BlankCanvasImage from "../../assets/images/blank_canvas.svg";
 
-import { Edit32, Play32, StopFilledAlt32 } from "@carbon/icons-react";
+import { Edit32, Play32, SelectWindow32, StopFilledAlt32, TouchInteraction32 } from "@carbon/icons-react";
 
 import { InlineLoading, Checkbox, Button } from "carbon-components-react";
 
@@ -159,7 +159,6 @@ class App extends React.Component {
 			canvasPalette2: "",
 			selectedInternalObjectModel: true,
 			selectedDragWithoutSelect: false,
-			selectedDragToMoveSizeNodesComments: true,
 			selectedAssocLinkCreation: false,
 			selectedSnapToGridType: NONE_DRAG,
 			enteredSnapToGridX: "",
@@ -1975,7 +1974,6 @@ class App extends React.Component {
 			enableEditingActions: this.state.selectedEditingActions,
 			enableInternalObjectModel: this.state.selectedInternalObjectModel,
 			enableDragWithoutSelect: this.state.selectedDragWithoutSelect,
-			enableDragToMoveSizeNodesComments: this.state.selectedDragToMoveSizeNodesComments,
 			enableLinkSelection: this.state.selectedLinkSelection,
 			enableLinkReplaceOnNewConnection: this.state.selectedLinkReplaceOnNewConnection,
 			enableAssocLinkCreation: this.state.selectedAssocLinkCreation,
@@ -2054,7 +2052,11 @@ class App extends React.Component {
 				{ action: "createAutoComment", label: "Add Comment", enable: true },
 				{ action: "deleteSelectedObjects", label: "Delete", enable: true },
 				{ action: "arrangeHorizontally", label: "Arrange Horizontally", enable: true },
-				{ action: "arrangeVertically", label: "Arrange Vertically", enable: true }
+				{ action: "arrangeVertically", label: "Arrange Vertically", enable: true },
+				{ divider: true },
+				{ action: "mouse", iconEnabled: (<SelectWindow32 />), label: "Mouse", enable: true, isSelectable: true, isSelected: this.state.selectedInteractionType === "Mouse" },
+				{ action: "trackpad", iconEnabled: (<TouchInteraction32 />), label: "Trackpad", enable: true, isSelectable: true, isSelected: this.state.selectedInteractionType === "Trackpad" },
+				{ divider: true }
 			];
 
 		} else if (this.state.selectedToolbarType === TOOLBAR_TYPE_BEFORE_AFTER) {
