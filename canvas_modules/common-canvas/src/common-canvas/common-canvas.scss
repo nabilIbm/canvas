@@ -34,6 +34,10 @@ $bottom-panel-height: 393px;
 	// Set the font explicitly to 14px to shrink them across the entire canvas
 	font-size: 14px;
 }
+#common-canvas-items-container-0{
+	// transform-style: preserve-3d;
+
+}
 
 .common-canvas-items-container {
 	height: 100%;
@@ -64,6 +68,10 @@ $bottom-panel-height: 393px;
 	cursor: default;
 	top: $toolbar-button-height;
 	overflow: hidden;
+
+	&.align-harness-empty-image-in-center{
+		height: 60vh;
+	}
 
 	&.common-canvas-toolbar-none {
 		height: 100%;
@@ -108,7 +116,6 @@ $bottom-panel-height: 393px;
 	width: 100%;
 	user-select: none;
 	height: 100%;
-
 }
 
 /* Alternative layout for common-canvas components where canvas and right-side
